@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:hackathon/front/sign_up_page.dart';
 
-void main() {
-}
+main() => runApp(MyApp());

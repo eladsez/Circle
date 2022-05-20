@@ -1,20 +1,24 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hackathon/front/login_screen.dart';
+import 'package:hackathon/front/register_page.dart';
 
-main() => runApp(const MaterialApp(
-      home: SignUpPage(),
-    ));
+main() {
+  runApp(MyApp());
+}
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FlutterLogin(
-      onLogin: (LoginData) {},
-      onRecoverPassword: (String) {},
-
+    return MaterialApp(
+      title: 'Flutter Animated Login',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primaryColor: Color.fromARGB(255, 67, 1, 78),
+          textTheme: GoogleFonts.robotoTextTheme(Theme.of(context).textTheme)),
+      home: LoginScreen(),
     );
   }
 }
