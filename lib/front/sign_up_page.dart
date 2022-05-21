@@ -4,8 +4,11 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hackathon/front/login_screen.dart';
 import 'package:hackathon/front/register_page.dart';
+import 'package:hackathon/front/main_screen.dart';
+import 'package:camera/camera.dart';
 
 main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 

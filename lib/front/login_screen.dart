@@ -41,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen>
     double defaultLoginSize = size.height - (size.height * 0.2);
     double defaultRegisterSize = size.height - (size.height * 0.1);
     var toCheck = this.isLogin;
+
     log("state : $toCheck");
     log("inset: $viewInset");
 
@@ -81,63 +82,7 @@ class _LoginScreenState extends State<LoginScreen>
               animationDuration: animationDuration,
               size: size,
               defaultLoginSize: defaultLoginSize),
-
-          // RegisterForm(
-          //     isLogin: isLogin,
-          //     animationDuration: animationDuration,
-          //     size: size,
-          //     defaultLoginSize: defaultRegisterSize),
-
-          // // Register Container
-          // AnimatedBuilder(
-          //   animation: animationController!,
-          //   builder: (context, child) {
-          //     if (viewInset == 0 && isLogin) {
-          //       return buildRegisterContainer();
-          //     } else if (!isLogin) {
-          //       return buildRegisterContainer();
-          //     }
-
-          //     // Returning empty container to hide the widget
-          //     return Container();
-          //   },
-          // ),
         ],
-      ),
-    );
-  }
-
-  Widget buildRegisterContainer() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        width: double.infinity,
-        height: containerSize.value,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(100),
-              topRight: Radius.circular(100),
-            ),
-            color: Color.fromARGB(255, 65, 2, 77)),
-        alignment: Alignment.center,
-        child: GestureDetector(
-          onTap: !isLogin
-              ? null
-              : () {
-                  animationController!.forward();
-
-                  setState(() {
-                    isLogin = !isLogin;
-                  });
-                },
-          child: isLogin
-              ? Text(
-                  "Don't have an account? Sign up",
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 65, 2, 77), fontSize: 18),
-                )
-              : null,
-        ),
       ),
     );
   }
