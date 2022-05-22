@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
-main() =>
-    runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
-    ));
-
 class SignUpPage extends StatelessWidget {
   static const routeName = 'Sign-up-page';
 
@@ -26,8 +20,9 @@ class SignUpPage extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(7)),
       child: Container(
-        padding: const EdgeInsets.only(left: 20, top: 13, right: 20),
+        padding: const EdgeInsets.only(top: 12, right: 10),
         child: TextField(
+          textAlign: TextAlign.right,
           controller: userInput,
           autocorrect: false,
           enableSuggestions: false,
@@ -58,7 +53,7 @@ class SignUpPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
           Container(
-          height: 400,
+          height: 450,
           width: double.infinity,
           decoration: const BoxDecoration(
             color: Color(0xFFFFCCBC),
@@ -74,47 +69,23 @@ class SignUpPage extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: userInput(firstNameController, 'Firs Name',
+                    child: userInput(firstNameController, 'שם פרטי',
                         TextInputType.name, false),
                   ),
                   Expanded(
                       child: userInput(lastNameController,
-                          'Last Name', TextInputType.name, false)),
+                          'שם משפחה', TextInputType.name, false)),
                 ],
               ),
-              userInput(phoneController, 'Phone',
+              userInput(phoneController, 'פלאפון',
                   TextInputType.number, false),
-              userInput(emailController, 'Email',
+              userInput(emailController, 'מייל',
                   TextInputType.emailAddress, false),
-              userInput(passwordController, 'Password',
+              userInput(passwordController, 'סיסמא',
                   TextInputType.visiblePassword, true),
-              // Padding(
-              //   padding: const EdgeInsets.only(top: 5.0),
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       SignInButton(
-              //         Buttons.Google,
-              //         onPressed: () {},
-              //         text: 'Sign up with google',
-              //         shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(16)),
-              //       ),
-              //       SignInButton(
-              //         Buttons.Facebook,
-              //         onPressed: () {},
-              //         text: 'Sign up with facebook',
-              //         shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(16)),
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ]),
             Container(
-              height: 50,
               // for an exact replicate, remove the padding.
-              margin: const EdgeInsets.only(bottom: 40, top: 0),
               padding:
               const EdgeInsets.only(top: 5, left: 70, right: 70),
               child: RaisedButton(
@@ -128,13 +99,35 @@ class SignUpPage extends StatelessWidget {
                   print("password:" + password);
                 },
                 child: const Text(
-                  'Sign Up',
+                  'הירשם',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
-                    color: Colors.black,
+                    color: Colors.black54,
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SignInButton(
+                    Buttons.Google,
+                    onPressed: () {},
+                    text: 'Sign up with google',
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                  ),
+                  //   SignInButton(
+                  //     Buttons.Facebook,
+                  //     onPressed: () {},
+                  //     text: 'Sign up with facebook',
+                  //     shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(16)),
+                  //   ),
+                ],
               ),
             ),
           ],

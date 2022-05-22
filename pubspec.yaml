@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_signin_button: ^2.0.0
+  carousel_slider: ^4.1.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -74,11 +75,19 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+   - family: Aksher
+     fonts:
+       - asset: fonts/Akshar-SemiBold.ttf
+
+   - family: SecularOne
+     fonts:
+       - asset: fonts/SecularOne-Regular.ttf
+
+   - family: IBMPlex
+     fonts:
+       - asset: fonts/IBMPlexSansHebrew-Regular.ttf
+
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
