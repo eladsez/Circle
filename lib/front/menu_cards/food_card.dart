@@ -1,60 +1,67 @@
 import 'package:flutter/material.dart';
 
 class FoodCard extends StatefulWidget {
+  String? imagereq;
+  String donorName;
+  String description;
+  Color cardColor;
+  TextStyle descriptionStyle = TextStyle(fontSize: 25, fontFamily: 'IBMPlex');
 
-  String? imagePath;
-  String? donorName;
-
-
-
-  FoodCard({Key? key, this.donorName, this.imagePath}) : super(key: key);
+  FoodCard(
+      {Key? key,
+      required this.donorName,
+      this.imagereq,
+      this.cardColor = Colors.white,
+      required this.description})
+      : super(key: key);
 
   @override
   State<FoodCard> createState() => _FoodCardState();
 }
 
 class _FoodCardState extends State<FoodCard> {
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Card(
-      child: Container(
-        margin: EdgeInsets.only(top: 100),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const ListTile(
-              leading: Icon(Icons.food_bank_outlined),
-              title: Text('The Enchanted Nightingale'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () {
-                    /* ... */
-                  },
-                ),
-                const SizedBox(width: 8),
-                TextButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () {
-                    /* ... */
-                  },
-                ),
-                const SizedBox(width: 8),
+      body: Container(
+        margin: const EdgeInsets.only(top: 20, bottom: 20),
+        height: 320,
+        width: 400,
+        child: Card(
+          color: widget.cardColor,
+          child: InkWell(
+            splashColor: Colors.grey.withAlpha(75),
+            onTap: () {
+              debugPrint('Card tapped.');
+            },
+            child: Column(
+              children: [
+                Image.network(
+                    'https://www.refrigeratedfrozenfood.com/ext/resources/NEW_RD_Website/DefaultImages/default-pasta.jpg'),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 4,
+                        child: Text(
+                          widget.description,
+                          textAlign: TextAlign.right,
+                        )),
+                    Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          child: Text(
+                      widget.donorName,
+                      style: const TextStyle(fontSize: 25),
+                      textAlign: TextAlign.right,
+                    ),
+                        )),
+                  ],
+                )
               ],
             ),
-          ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }

@@ -10,7 +10,5 @@ abstract class SignUpStorage {
 
   bool googleSignUp();
 
-  bool facebookSignUp();
-
   void attchedUserType();
 }
