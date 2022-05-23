@@ -22,11 +22,10 @@ class FoodCard extends StatefulWidget {
 class _FoodCardState extends State<FoodCard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
         margin: const EdgeInsets.only(top: 20, bottom: 20),
         height: 320,
-        width: 400,
+        width: MediaQuery.of(context).size.width - 5,
         child: Card(
           color: widget.cardColor,
           child: InkWell(
@@ -61,7 +60,6 @@ class _FoodCardState extends State<FoodCard> {
             ),
           ),
         ),
-      ),
     );
   }
 }
